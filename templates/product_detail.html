@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Product Detail</title>
+	<link rel="stylesheet" href="{% static 'Css/product_detail.css' %}">
+
+	<style> 
+		div{
+			display:inline-block;
+			max-width:400px;
+		}
+		.description{
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+
+	<center>
+		<div>
+			<img src="{{object.image.url}}" height='200' width='200'>
+			<h2>{{object.name}}</h2>
+			<p class='description'>{{object.description}}</p>
+			<p>{{object.date_created}}</p>
+			{% for i in object.tags.all %}
+			<h4>{{i.name}}</h4>
+			{% endfor %}
+			<div class="button-wrapper">
+				<a href="/product/" class="arrow-btn">Back<span></span></a>
+			</div>
+		</div>
+	</center>
+
+</body>
+</html>

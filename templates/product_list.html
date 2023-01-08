@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Product</title>
+	<link rel="stylesheet" href="{% static 'Css/style_product.css' %}">
+</head>
+<body>
+
+	<center>
+		<div>
+			<a href="/product_male/" class="action-btn">Male</a>
+			<a href="/product_female/" class="action-btn">Female</a>
+			<a href="/product_teenager/" class="action-btn">Teenager</a>
+			<a href="/product_baby/" class="action-btn">Baby</a>
+		</div>
+	</center>
+		{% for i in object_list %}
+	<div class="product-item">
+		<img src="{{i.image.url}}">
+		<div class="product-list">
+			<h3></h3>
+			<span class="price">{{i.price}}$</span>
+			<a href="/product/{{i.id}}" class="button">{{i.name}}</a>
+		</div>
+	</div>
+		{% endfor %}
+
+
+	
+</body>
+</html>

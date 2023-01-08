@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Product</title>
+	<link rel="stylesheet" href="{% static 'Css/style_product.css' %}">
+</head>
+<body>
+
+	{% for i in object_list %}
+	<div class="product-item">
+		<img src="{{i.image.url}}">
+		<div class="product-list">
+			<h3></h3>
+			<span class="price">{{i.price}}$</span>
+			<a href="/product/{{i.id}}" class="button">{{i.name}}</a>
+		</div>
+	</div>
+	{% endfor %}
+	<div class="button-wrapper">
+		<a href="/product/" class="arrow-btn">Back<span></span></a>
+	</div>
+
+
+	
+</body>
+</html>
