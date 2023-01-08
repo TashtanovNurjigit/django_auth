@@ -50,13 +50,13 @@ HOBBY = (
 
 
 class RegistrationForm(UserCreationForm):
-	email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'input', 'placeholder': 'Email', 'id': 'hi'}))
-	phone_number = forms.CharField(required=True, widget=forms.NumberInput(attrs={'class': 'input', 'placeholder': 'Phone number', 'id': 'hi'}))
-	age = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={'class': 'input', 'placeholder': 'Age', 'id': 'hi'}))
-	user_type = forms.ChoiceField(choices=USER_TYPE,required=True, widget=forms.RadioSelect(attrs={'class': 'input', 'placeholder': 'User Type', 'id': 'hi'}))
-	gender = forms.ChoiceField(choices=GENDER_TYPE,required=True,  widget=forms.RadioSelect(attrs={'class': 'input', 'placeholder': 'Gender', 'id': 'hi'}))
-	type_of_activity = forms.ChoiceField(choices=TYPE_OF_ACTIVITY,required=True,  widget=forms.RadioSelect(attrs={'class': 'input', 'placeholder': 'Activity', 'id': 'hi'}))
-	hobby = forms.ChoiceField(choices=HOBBY,required=True,  widget=forms.RadioSelect(attrs={'class': 'input', 'placeholder': 'Hobby', 'id': 'hi'}))
+	email = forms.EmailField(required=True)
+	phone_number = forms.CharField(required=True)
+	age = forms.IntegerField(required=True)
+	user_type = forms.ChoiceField(choices=USER_TYPE,required=True)
+	gender = forms.ChoiceField(choices=GENDER_TYPE,required=True)
+	type_of_activity = forms.ChoiceField(choices=TYPE_OF_ACTIVITY,required=True)
+	hobby = forms.ChoiceField(choices=HOBBY,required=True)
 
 	class Meta:
 		model = models.CustomUser
@@ -74,15 +74,6 @@ class RegistrationForm(UserCreationForm):
 			'hobby'
 			)
 
-	def __init__(self, *args, **kwargs):
-		super(RegistrationForm, self).__init__(*args, **kwargs)
-
-		self.fields['username'].widget.attrs['class'] = 'input'
-		self.fields['password1'].widget.attrs['class'] = 'input'
-		self.fields['password2'].widget.attrs['class'] = 'input'
-		self.fields['first_name'].widget.attrs['class'] = 'input'
-		self.fields['last_name'].widget.attrs['class'] = 'input'
-
 	def save(self, commit=True):
 		user = super(RegistrationForm, self).save(commit=False)
 		user.email = self.cleaned_data['email']
@@ -97,16 +88,15 @@ class LoginForm(AuthenticationForm):
 
 	username = UsernameField(widget=forms.TextInput(
 		attrs={
-		'class': 'input',
-		'placeholder': 'Username',
-		'id': 'hello',
-		'data-type': 'username'
+		'class': 'form-control',
+		'placeholder': 'username',
+		'id': 'hello'
 		}
 	))
 	password = forms.CharField(widget=forms.PasswordInput(
 		attrs={
-		'class': 'input',
-		'placeholder': 'Password',
+		'class': 'form-control',
+		'placeholder': 'password',
 		'id': 'hi'
 		}
 	))

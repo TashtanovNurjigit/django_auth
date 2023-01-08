@@ -1,9 +1,13 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 {% load static %}
+=======
+>>>>>>> c7d84810f65a4ac6834e637d1c19ca9fe23c53e4
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+<<<<<<< HEAD
 
 	<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
 
@@ -71,6 +75,18 @@
 	</div>
 </div>
 
+=======
+</head>
+<body>
+
+	<form method="post">
+
+		{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit">Register</button>
+	
+	</form>
+>>>>>>> c7d84810f65a4ac6834e637d1c19ca9fe23c53e4
 	
 </body>
 </html>

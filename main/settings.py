@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+<<<<<<< HEAD
     'cloth',
+=======
+>>>>>>> c7d84810f65a4ac6834e637d1c19ca9fe23c53e4
 ]
 
 MIDDLEWARE = [
